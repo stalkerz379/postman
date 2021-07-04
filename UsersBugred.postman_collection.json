@@ -1,0 +1,437 @@
+{
+	"info": {
+		"_postman_id": "3256ea95-efbf-4624-a1ae-d1812c6401c7",
+		"name": "UsersBugred",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Tests With .CSV file",
+			"item": [
+				{
+					"name": "DoRegister Positive Tests With .CSV/JSON",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"{{email}}\",\r\n    \"name\":\"{{name}}\",\r\n    \"password\":\"{{password}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/tasks/rest/doregister",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DoRegister Negative Tests With .CSV/JSON",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"{{email}}\",\r\n    \"name\":\"{{name}}\",\r\n    \"password\":\"{{password}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/tasks/rest/doregister",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DoRegister",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"cocojambo@mail.ru\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"cocojambo@mail.ru\",\r\n    \"name\":\"Valeriy\",\r\n    \"password\":\"qwe\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/tasks/rest/doregister",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"doregister"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateCompany",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"cocojambo@mail.ru\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n  \"company_name\": \"CocoJambo\",\r\n  \"company_type\": \"ОАО\",\r\n  \"company_users\": [\"cocojambo@mail.ru\"],\r\n  \"email_owner\": \"cocojambo@mail.ru\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/tasks/rest/createcompany",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"createcompany"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateUser (all data)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"xxx.mail.ru\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n  \"email\": \"xxx@mail.ru\",\r\n  \"name\": \"Igor\",\r\n  \"tasks\": [3],\r\n  \"companies\": [7,8],\r\n  \"hobby\":\"Fotball, reading science fiction, walking\",\r\n  \"adres\":\"Kyiv, Hreshatik str\",\r\n  \"name1\":\"George\",\r\n  \"surname1\":\"Gagarin\",\r\n  \"fathername1\":\"Georgevich\",\r\n  \"cat\":\"cat\",\r\n  \"dog\":\"bulldog\",\r\n  \"parrot\":\"lost\",\r\n  \"cavy\":\"pig\",\r\n  \"hamster\":\"Lazy guy\",\r\n  \"squirrel\":\"have not bought yet\",\r\n  \"phone\":\"123456890\",\r\n  \"inn\":\"098765432109\",\r\n  \"gender\":\"m\",\r\n  \"birthday\":\"10.10.1990\",\r\n  \"date_start\":\"01.01.2010\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/tasks/rest/createuser",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"createuser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateUser (only must have parameters)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"some@mail.ru\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n  \"email\": \"some@mail.ru\",\r\n  \"name\": \"Vitya1\",\r\n  \"tasks\": [10],\r\n  \"companies\": [10]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/tasks/rest/createuser",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"createuser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateUserWithTasks (only must have parameters)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"5\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"email\": \"some_email@mail.ru\",\r\n \"name\": \"Al Capone\",\r\n \"tasks\": [{\r\n       \"title\": \"1\",\r\n       \"description\": \"Unit\"\r\n  },\r\n  {\r\n       \"title\": \"2\",\r\n       \"description\": \"Integration\"\r\n  },\r\n  {\r\n       \"title\":\"3\",\r\n       \"description\":\"System\"\r\n  },\r\n  {\r\n        \"title\":\"4\",\r\n        \"description\":\"Regression\"\r\n  },\r\n  {\r\n        \"title\":\"5\",\r\n        \"description\":\"Acceptance\"\r\n  }\r\n ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/tasks/rest/createuserwithtasks",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"createuserwithtasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddAvatar",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "avatar",
+							"type": "file",
+							"src": "/C:/Users/Denys/OneDrive/Рабочий стол/image.jpg"
+						},
+						{
+							"key": "email",
+							"value": "some_email@mail.ru",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/tasks/rest/addavatar",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"addavatar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteAvatar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "some_email@mail.ru",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/tasks/rest/deleteavatar",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"deleteavatar"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
