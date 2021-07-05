@@ -1,6 +1,7 @@
 # postman
 Here added some simple tests for http://users.bugred.ru system with Postman.
 You can import this collection - "UsersBugred.postman_collection.json" and environment "UsersBugred Environment.postman_environment.json".
+Find the documentation here: https://testbase.atlassian.net/wiki/spaces/USERS/pages/592511089/SOAP+REST
 
 "UsersBugred.postman_collection.json" collection includes 9 simple tests:
 1. Requests: DoRegister Positive Tests With .CSV/JSON and DoRegister Negative Tests With .CSV/JSON can be run with .csv and .json test data.
